@@ -1,3 +1,7 @@
+package Serveur;
+
+import Serveur.ServeurCommunication;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
