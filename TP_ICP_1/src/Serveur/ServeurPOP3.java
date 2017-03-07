@@ -2,6 +2,7 @@ package Serveur;
 
 import Serveur.ServeurConnexion;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +18,19 @@ public class ServeurPOP3 {
 
     public static void main(String[] args) throws IOException {
 
-        userlist.add(new User("rom","123"));
-        username.addAll(userlist.stream().map(User::getName).collect(Collectors.toList()));
 
+        for (String user:Util.listerRepertoire(new File("Message"))) {
+            username.add(user);
+            System.out.println(user);
+        }
+
+        for (String user : username) {
+            Util.readFile("Message/"+user);
+        }
 
         ServeurConnexion cnx = new ServeurConnexion();
         cnx.connexion();
 
     }
+
 }

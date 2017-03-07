@@ -59,7 +59,7 @@ public class ServeurCommunication {
                     case AUTORISATION:
                         if (request.contains("USER") && authentificationFlag == 0) {
                             System.out.println(request.substring(request.indexOf(" ")));
-                            if(ServeurPOP3.username.contains(request.substring(request.indexOf(" ")))){
+                            if(ServeurPOP3.username.contains(request.substring(request.indexOf(" ")+1)+".txt")){
                                 this.user = request.substring(request.indexOf(" "));
                                 authentificationFlag = 1;
                                 etat = etatPossible.AUTHENTIFICATION;
