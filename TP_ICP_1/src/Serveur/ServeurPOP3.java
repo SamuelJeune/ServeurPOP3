@@ -28,6 +28,10 @@ public class ServeurPOP3 {
             Util.readFile("Message/"+user);
         }
 
+        for (String user : username) {
+            System.out.println(Util.countMessage("Message/"+user));
+        }
+
         ServeurConnexion cnx = new ServeurConnexion();
         cnx.connexion();
 

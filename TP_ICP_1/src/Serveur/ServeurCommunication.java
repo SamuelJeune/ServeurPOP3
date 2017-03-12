@@ -7,7 +7,7 @@ import java.net.Socket;
 /**
  * Created by p1307887 on 06/03/2017.
  */
-public class ServeurCommunication {
+public class ServeurCommunication extends Thread{
     private Socket conn_cli;
     private int ID;
     private enum etatPossible {FERME, AUTORISATION, AUTHENTIFICATION, TRANSACTION};
@@ -26,7 +26,8 @@ public class ServeurCommunication {
             this.connexion=true;
         }
 
-        void start() throws IOException {
+        @Override
+        public void start(){
             BufferedReader in = null;
 
             try {
@@ -45,13 +46,19 @@ public class ServeurCommunication {
 
             String request = null;
 
-            out.write("+OK POP3 serveur ready\r\n".getBytes());
+
+            try {
+                out.write("+OK POP3 serveur ready\r\n".getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             while(connexion) {
                 try {
                     request = in.readLine();
                     System.out.println(request);
                 } catch (IOException var15) {
+                    System.out.println("request null");
                 }
                 switch (etat) {
                     case FERME:
@@ -63,15 +70,23 @@ public class ServeurCommunication {
                                 this.user = request.substring(request.indexOf(" "));
                                 authentificationFlag = 1;
                                 etat = etatPossible.AUTHENTIFICATION;
-                                out.write("+OK user exist\r\n".getBytes());
+                                try {
+                                    out.write("+OK user exist\r\n".getBytes());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
 
                         }else if (request.contains("APOP")){
                             System.out.println(request.substring(request.indexOf(" "),request.lastIndexOf(" ")));
                             System.out.println(request.substring(request.lastIndexOf(" ")));
-                            this.user = request.substring(request.indexOf(" "),request.lastIndexOf(" "));
+                            this.user = request.substring(request.indexOf(" ")+1,request.lastIndexOf(" "));
                             this.pass = request.substring(request.indexOf(" "));
-                            out.write(("+OK "+user+" has 2 messages\r\n").getBytes());
+                            try {
+                                out.write(("+OK " +Util.countMessage("Message/"+user+".txt") + "\r\n").getBytes());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             etat = etatPossible.TRANSACTION;
                         }
                         break;
@@ -80,13 +95,21 @@ public class ServeurCommunication {
                             System.out.println(request.substring(request.indexOf(" "),request.lastIndexOf(" ")));
                             this.pass = request.substring(request.lastIndexOf(" "));
                             authentificationFlag = 2;
-                            out.write("+OK 1 320\r\n".getBytes());
+                            try {
+                                out.write(("+OK" +Util.countMessage("Message/"+user+".txt")+"\r\n").getBytes());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             etat = etatPossible.TRANSACTION;
                         }
                         break;
                     case TRANSACTION:
                         if (request.contains("STAT")){
-                            out.write("+OK 2 320\r\n".getBytes());
+                            try {
+                                out.write(("+OK"+Util.countMessage("Message/"+user+".txt")+"\r\n").getBytes());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }else if(request.contains("QUIT")){
                             miseajour();
                             etat=etatPossible.FERME;
@@ -96,10 +119,20 @@ public class ServeurCommunication {
             }
 
 
-            out.close();
+            try {
+                out.close();
+
             in.close();
             this.conn_cli.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+    private void getUserInfo(String user) {
+        Util.countMessage("Message/"+user);
+    }
+
 
     private void miseajour() {
         this.connexion=false;
