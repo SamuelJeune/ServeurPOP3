@@ -58,4 +58,10 @@ public class Util {
         }
         return messagesNb;
     }
+
+    public static long getFileSize(String file){
+        long size;
+        size = new File(file).length();
+        return size;
+    }
 }

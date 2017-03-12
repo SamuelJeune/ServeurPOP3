@@ -83,7 +83,7 @@ public class ServeurCommunication extends Thread{
                             this.user = request.substring(request.indexOf(" ")+1,request.lastIndexOf(" "));
                             this.pass = request.substring(request.indexOf(" "));
                             try {
-                                out.write(("+OK " +Util.countMessage("Message/"+user+".txt") + "\r\n").getBytes());
+                                out.write(("+OK " +Util.countMessage("Message/"+user+".txt")+" "+Util.getFileSize("Message/"+user+".txt") + "\r\n").getBytes());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -96,7 +96,7 @@ public class ServeurCommunication extends Thread{
                             this.pass = request.substring(request.lastIndexOf(" "));
                             authentificationFlag = 2;
                             try {
-                                out.write(("+OK" +Util.countMessage("Message/"+user+".txt")+"\r\n").getBytes());
+                                out.write(("+OK" +Util.countMessage("Message/"+user+".txt")+" "+Util.getFileSize("Message/"+user+".txt")+"\r\n").getBytes());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -106,7 +106,7 @@ public class ServeurCommunication extends Thread{
                     case TRANSACTION:
                         if (request.contains("STAT")){
                             try {
-                                out.write(("+OK"+Util.countMessage("Message/"+user+".txt")+"\r\n").getBytes());
+                                out.write(("+OK "+Util.countMessage("Message/"+user+".txt")+" "+Util.getFileSize("Message/"+user+".txt")+"\r\n").getBytes());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

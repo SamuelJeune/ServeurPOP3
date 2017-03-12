@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1446d9b-4722-4845-8951-7c0fc512ab9c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/ServeurCommunication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/ServeurConnexion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/ServeurPOP3.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/Client/ClientPOP3.class" afterPath="$PROJECT_DIR$/out/production/TP_ICP_1/Client/ClientPOP3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/ServeurCommunication$1.class" afterPath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/ServeurCommunication$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/ServeurCommunication.class" afterPath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/ServeurCommunication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/ServeurPOP3.class" afterPath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/ServeurPOP3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/Util.class" afterPath="$PROJECT_DIR$/out/production/TP_ICP_1/Serveur/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/rom.txt" afterPath="$PROJECT_DIR$/Message/rom.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Client/ClientPOP3.java" afterPath="$PROJECT_DIR$/src/Client/ClientPOP3.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Serveur/ServeurCommunication.java" afterPath="$PROJECT_DIR$/src/Serveur/ServeurCommunication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Serveur/ServeurPOP3.java" afterPath="$PROJECT_DIR$/src/Serveur/ServeurPOP3.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Serveur/Util.java" afterPath="$PROJECT_DIR$/src/Serveur/Util.java" />
     </list>
     <ignored path="TP_ICP_1.iws" />
@@ -52,8 +38,8 @@
       <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Serveur/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="48" column="37" lean-forward="false" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+            <state relative-caret-position="399">
+              <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -92,8 +78,8 @@
       <file leaf-file-name="ServeurCommunication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serveur/ServeurCommunication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="108" column="111" lean-forward="true" selection-start-line="108" selection-start-column="111" selection-end-line="108" selection-end-column="111" />
+            <state relative-caret-position="198">
+              <caret line="108" column="48" lean-forward="false" selection-start-line="108" selection-start-column="48" selection-end-line="108" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,7 +102,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
               <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="30" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1004#1005#0" expanded="false" />
+                <element signature="e#1038#1039#0" expanded="false" />
+                <element signature="e#1075#1076#0" expanded="false" />
+                <element signature="e#1116#1117#0" expanded="false" />
+                <element signature="e#1144#1145#0" expanded="false" />
+                <element signature="e#1187#1188#0" expanded="false" />
+                <element signature="e#1225#1226#0" expanded="false" />
+                <element signature="e#1267#1268#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,7 +122,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
               <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#445#446#0" expanded="false" />
+                <element signature="e#471#472#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -752,12 +752,12 @@
       <workItem from="1488871093925" duration="5880000" />
       <workItem from="1489271887240" duration="854000" />
       <workItem from="1489311553076" duration="2233000" />
-      <workItem from="1489314579221" duration="824000" />
+      <workItem from="1489314579221" duration="1616000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16084000" />
+    <option name="totallyTimeSpent" value="16876000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1084" extended-state="0" />
@@ -879,7 +879,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1004#1005#0" expanded="false" />
+            <element signature="e#1038#1039#0" expanded="false" />
+            <element signature="e#1075#1076#0" expanded="false" />
+            <element signature="e#1116#1117#0" expanded="false" />
+            <element signature="e#1144#1145#0" expanded="false" />
+            <element signature="e#1187#1188#0" expanded="false" />
+            <element signature="e#1225#1226#0" expanded="false" />
+            <element signature="e#1267#1268#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -887,7 +897,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#445#446#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -953,7 +967,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1004#1005#0" expanded="false" />
+            <element signature="e#1038#1039#0" expanded="false" />
+            <element signature="e#1075#1076#0" expanded="false" />
+            <element signature="e#1116#1117#0" expanded="false" />
+            <element signature="e#1144#1145#0" expanded="false" />
+            <element signature="e#1187#1188#0" expanded="false" />
+            <element signature="e#1225#1226#0" expanded="false" />
+            <element signature="e#1267#1268#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1135,7 +1159,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#445#446#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1151,7 +1179,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1004#1005#0" expanded="false" />
+            <element signature="e#1038#1039#0" expanded="false" />
+            <element signature="e#1075#1076#0" expanded="false" />
+            <element signature="e#1116#1117#0" expanded="false" />
+            <element signature="e#1144#1145#0" expanded="false" />
+            <element signature="e#1187#1188#0" expanded="false" />
+            <element signature="e#1225#1226#0" expanded="false" />
+            <element signature="e#1267#1268#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1173,16 +1211,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serveur/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="48" column="37" lean-forward="false" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        <state relative-caret-position="399">
+          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serveur/ServeurCommunication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="108" column="111" lean-forward="true" selection-start-line="108" selection-start-column="111" selection-end-line="108" selection-end-column="111" />
+        <state relative-caret-position="198">
+          <caret line="108" column="48" lean-forward="false" selection-start-line="108" selection-start-column="48" selection-end-line="108" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
