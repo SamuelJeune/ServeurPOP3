@@ -2,6 +2,8 @@ package Serveur;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -17,6 +19,9 @@ public class ServeurCommunication extends Thread{
     private String pass;
     private boolean connexion;
     private int messageNb;
+    private long messageSize;
+    private List<Message> messageList = new ArrayList<>();
+    private List<Integer> idList = new ArrayList<>();
 
         public ServeurCommunication(Socket conn_cli, int ID) {
             this.conn_cli = conn_cli;
@@ -82,8 +87,9 @@ public class ServeurCommunication extends Thread{
                             System.out.println(request.substring(request.lastIndexOf(" ")));
                             this.user = request.substring(request.indexOf(" ")+1,request.lastIndexOf(" "));
                             this.pass = request.substring(request.indexOf(" "));
+                            getUserInfo(user);
                             try {
-                                out.write(("+OK " +Util.countMessage("Message/"+user+".txt")+" "+Util.getFileSize("Message/"+user+".txt") + "\r\n").getBytes());
+                                out.write(("+OK " +messageNb+" "+messageSize + "\r\n").getBytes());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -95,8 +101,9 @@ public class ServeurCommunication extends Thread{
                             System.out.println(request.substring(request.indexOf(" "),request.lastIndexOf(" ")));
                             this.pass = request.substring(request.lastIndexOf(" "));
                             authentificationFlag = 2;
+                            getUserInfo(user);
                             try {
-                                out.write(("+OK" +Util.countMessage("Message/"+user+".txt")+" "+Util.getFileSize("Message/"+user+".txt")+"\r\n").getBytes());
+                                out.write(("+OK" +messageNb+" "+messageSize +"\r\n").getBytes());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -106,13 +113,37 @@ public class ServeurCommunication extends Thread{
                     case TRANSACTION:
                         if (request.contains("STAT")){
                             try {
-                                out.write(("+OK "+Util.countMessage("Message/"+user+".txt")+" "+Util.getFileSize("Message/"+user+".txt")+"\r\n").getBytes());
+                                out.write(("+OK "+messageNb+" "+messageSize +"\r\n").getBytes());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }else if(request.contains("QUIT")){
                             miseajour();
                             etat=etatPossible.FERME;
+                        }else if(request.contains("RETR")){
+                            if(idList.contains(Integer.parseInt(request.substring(5)))){
+                                System.out.println(request.substring(5));
+                                for (int i=0;i<idList.size();i++
+                                     ) {
+                                    if(idList.get(i)==Integer.parseInt(request.substring(5))){
+                                        try {
+                                            out.write((messageList.get(i).getMessageTxt()+"\r\n").getBytes());
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
+
+
+                            }
+                            else{
+                                try {
+                                    out.write(("ERROR MESSAGE NOT REAL").getBytes());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
                         }
                         break;
                 }
@@ -130,7 +161,20 @@ public class ServeurCommunication extends Thread{
         }
 
     private void getUserInfo(String user) {
-        Util.countMessage("Message/"+user);
+        System.out.println("user info "+user);
+
+        this.messageNb=Util.countMessage("Message/"+user+".txt");
+        this.messageSize=Util.getFileSize("Message/"+user+".txt");
+        System.out.println("message number "+messageNb);
+
+        List<String> list = Util.readMessage("Message/"+user+".txt");
+
+        for(int i=0; i<list.size(); i++){
+            //System.out.println(list.get(i));
+            //System.out.println(list.get(i).substring(list.get(i).indexOf("Message-ID: ")+13,  list.get(i).lastIndexOf(">")));
+            messageList.add(new Message(Integer.parseInt(list.get(i).substring(list.get(i).indexOf("Message-ID: ")+13,  list.get(i).lastIndexOf(">"))),list.get(i)));
+            idList.add(Integer.parseInt(list.get(i).substring(list.get(i).indexOf("Message-ID: ")+13,  list.get(i).lastIndexOf(">"))));
+        }
     }
 
 

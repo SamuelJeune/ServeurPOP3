@@ -2,7 +2,7 @@ From: sam <sam@example.com>
 To: rom <rom@exemple.com>
 Subject: Hello
 Date: demain
-Message-ID: 2
+Message-ID: <2>
 
 Hello rom!
 .
@@ -11,7 +11,7 @@ From: sam <sam@example.com>
 To: rom <rom@exemple.com>
 Subject: Hello
 Date: demain
-Message-ID: 3
+Message-ID: <3>
 
 Hello sam!
 .

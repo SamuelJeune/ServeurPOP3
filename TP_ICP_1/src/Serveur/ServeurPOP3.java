@@ -21,7 +21,7 @@ public class ServeurPOP3 {
 
         for (String user:Util.listerRepertoire(new File("Message"))) {
             username.add(user);
-            System.out.println(user);
+            //System.out.println(user);
         }
 
         for (String user : username) {
@@ -29,7 +29,7 @@ public class ServeurPOP3 {
         }
 
         for (String user : username) {
-            System.out.println(Util.countMessage("Message/"+user));
+            //System.out.println(Util.countMessage("Message/"+user));
         }
 
         ServeurConnexion cnx = new ServeurConnexion();
